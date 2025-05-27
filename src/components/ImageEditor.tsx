@@ -67,7 +67,7 @@ export default function ImageEditor() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200 shadow-sm">
+      <header className="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <h1 className="text-2xl font-bold text-gray-900">
@@ -112,7 +112,9 @@ export default function ImageEditor() {
 
           {/* Middle Panel - Preview */}
           <div className="lg:col-span-1">
-            <PreviewPanel />
+            <div className="sticky top-20 z-20">
+              <PreviewPanel />
+            </div>
           </div>
 
           {/* Right Panel - Style Controls */}

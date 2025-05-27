@@ -71,8 +71,8 @@ const ImageGenerator = forwardRef<HTMLDivElement, ImageGeneratorProps>(({ config
         width: `${config.canvasSize.width}px`,
         height: `${config.canvasSize.height}px`,
         position: 'absolute',
-        left: '99px',
-        top: '1899px',
+        left: '-999px',
+        top: '-999px',
         ...getBackgroundStyle(),
       }}
     >
@@ -90,7 +90,7 @@ const ImageGenerator = forwardRef<HTMLDivElement, ImageGeneratorProps>(({ config
         />
       )}
       
-      <div className={`h-full w-full flex items-center justify-center ${config.layout === 'image-only' ? 'p-0' : 'p-16'} ${getLayoutClasses()} relative z-10`}>
+      <div className={`h-full w-full flex items-center justify-center ${config.layout === 'image-only' ? 'p-0' : 'p-6'} ${getLayoutClasses()} relative z-10`}>
 
         {/* 图片作为背景的布局 */}
         {config.layout === 'image-background' && (
@@ -143,15 +143,15 @@ const ImageGenerator = forwardRef<HTMLDivElement, ImageGeneratorProps>(({ config
                 config.layout === 'text-above-image' ? 'mt-8' :
                 config.layout === 'image-only' ? '' :
                 ''
-              }`}>
+              } flex items-center justify-center`}>
                 <img
                   src={config.uploadedImage}
                   alt="Preview"
                   className="object-contain"
                   style={{
-                    width: config.layout === 'image-only' ? '100%' : `${config.imageStyle?.width || 100}%`,
+                    width: config.layout === 'image-only' ? '90%' : `${config.imageStyle?.width || 100}%`,
                     height: config.layout === 'image-only' ? '100%' : `${config.imageStyle?.height || 100}%`,
-                    // maxWidth: config.layout === 'image-only' ? '100%' : (config.layout.includes('image-right') || config.layout.includes('image-left') ? '800px' : '800px'),
+                    maxWidth: config.layout === 'image-only' ? '100%' : (config.layout.includes('image-right') || config.layout.includes('image-left') ? '800px' : '800px'),
                     maxHeight: config.layout === 'image-only' ? '100%' : (config.layout.includes('image-right') || config.layout.includes('image-left') ? '600px' : '600px'),
                     borderRadius: `${config.imageStyle?.borderRadius || 0}px`,
                   }}
@@ -161,7 +161,7 @@ const ImageGenerator = forwardRef<HTMLDivElement, ImageGeneratorProps>(({ config
             
             {/* 文字内容 */}
             {config.layout !== 'image-only' && (
-              <div className={`flex flex-col ${getTextAlignClass(config.titleStyle.textAlign)} flex-1 min-w-0`}>
+              <div className={`flex flex-col ${getTextAlignClass(config.titleStyle.textAlign)}  min-w-0`}>
                 {config.title && (
                   <h1
                     className={`font-${config.titleStyle.fontWeight} ${getTextAlignClass(config.titleStyle.textAlign)} leading-tight break-words`}

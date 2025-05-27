@@ -171,7 +171,7 @@ const PreviewPanel = forwardRef<HTMLDivElement>((props, ref) => {
                 
                 {/* 文字内容 */}
                 {config.layout !== 'image-only' && (
-                  <div className={`flex flex-col ${getTextAlignClass(config.titleStyle.textAlign)} flex-1 min-w-0`}>
+                  <div className={`flex flex-col ${getTextAlignClass(config.titleStyle.textAlign)}  min-w-0`}>
                     {config.title && (
                       <h1
                         className={`font-${config.titleStyle.fontWeight} ${getTextAlignClass(config.titleStyle.textAlign)} leading-tight break-words`}

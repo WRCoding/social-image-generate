@@ -122,62 +122,7 @@ export default function ContentPanel() {
             
             {/* 图片尺寸调整 */}
             <div className="space-y-4 p-4 bg-gray-50 rounded-lg">
-              <h4 className="text-sm font-medium text-gray-900">图片尺寸调整</h4>
-              
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  宽度比例: {config.imageStyle?.width || 100}%
-                </label>
-                <input
-                  type="range"
-                  min="20"
-                  max="150"
-                  value={config.imageStyle?.width || 100}
-                  onChange={(e) => updateConfig({
-                    imageStyle: {
-                      ...config.imageStyle,
-                      width: parseInt(e.target.value),
-                      height: config.imageStyle?.height || 100,
-                      position: config.imageStyle?.position || { x: 0, y: 0 },
-                      borderRadius: config.imageStyle?.borderRadius || 0
-                    }
-                  })}
-                  className="w-full"
-                />
-                <div className="flex justify-between text-xs text-gray-500 mt-1">
-                  <span>20%</span>
-                  <span>100%</span>
-                  <span>150%</span>
-                </div>
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  高度比例: {config.imageStyle?.height || 100}%
-                </label>
-                <input
-                  type="range"
-                  min="20"
-                  max="150"
-                  value={config.imageStyle?.height || 100}
-                  onChange={(e) => updateConfig({
-                    imageStyle: {
-                      ...config.imageStyle,
-                      width: config.imageStyle?.width || 100,
-                      height: parseInt(e.target.value),
-                      position: config.imageStyle?.position || { x: 0, y: 0 },
-                      borderRadius: config.imageStyle?.borderRadius || 0
-                    }
-                  })}
-                  className="w-full"
-                />
-                <div className="flex justify-between text-xs text-gray-500 mt-1">
-                  <span>20%</span>
-                  <span>100%</span>
-                  <span>150%</span>
-                </div>
-              </div>
-              
+              <h4 className="text-sm font-medium text-gray-900">图片圆角调整</h4>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   圆角程度: {config.imageStyle?.borderRadius || 0}px
@@ -190,10 +135,11 @@ export default function ContentPanel() {
                   onChange={(e) => updateConfig({
                     imageStyle: {
                       ...config.imageStyle,
-                      width: config.imageStyle?.width || 100,
-                      height: config.imageStyle?.height || 100,
-                      position: config.imageStyle?.position || { x: 0, y: 0 },
-                      borderRadius: parseInt(e.target.value)
+                      borderRadius: parseInt(e.target.value),
+                      width: config.imageStyle?.width ?? 100,
+                      height: config.imageStyle?.height ?? 100,
+                      position: config.imageStyle?.position ?? { x: 0, y: 0 },
+                      border: config.imageStyle?.border,
                     }
                   })}
                   className="w-full"
